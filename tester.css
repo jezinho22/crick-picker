@@ -1,0 +1,70 @@
+body{
+    font-family:'Calibri','Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
+    width: 75%;
+    background-color: #dce775;
+    margin: 0 auto;
+
+}
+main {
+}
+.column {
+    float: left;
+    width: 25%;
+    margin: 0 2% 0 0 ;
+    border-radius: 8px;
+}
+.head2{
+    border-radius: 8px;
+    padding: 5px 30%;
+    width: 19%;
+}
+.spacedLines{
+    /*line-height: 100%;*/
+    color:blue
+}
+.playerInput{
+    width: 60%;
+    padding: 10px 6px;
+    margin: 0 0 5px 5px;
+    display: inline-block;
+    border: 1px solid green;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color:burlywood;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+.indent{
+    text-indent:100px;
+    color:green;
+}
+table{
+    width:80%;
+}
+td{
+    border-collapse:collapse;
+    border-color:#ddd;
+    border: 1px solid;
+    width: 30%;
+    height: 40px;
+}
+.playerTable tr:nth-child(even){background-color:#fff59d;color:#388e3c}
+.playerTable tr:hover {background-color:#8bc34a;}
+
+.inputButton {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 4px;
+    font-weight:bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height:30px;
+  }
+
+  .inputButton:hover {background-color: #45a049;}
+
+.runsCell{
+    text-align:right;
+}
