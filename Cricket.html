@@ -1,0 +1,115 @@
+<html>
+<head>
+  <title>Cricket Master</title>
+  <script language="JavaScript" src="Cricket2.js"></script>
+  <link rel="stylesheet" href="Cricket.css">
+</head>
+
+<body onload="startUp(document)"> 
+  <!onload="playerList.displayColumn(document, document.getElementById('tableTeamIndia'),'firstTeamIndia'),
+  playerList.displayColumn(document, document.getElementById('tableTeamEngland'),'firstTeamEngland'),
+  funcInputLists(document, document.getElementById('inputBoxes'), playerList.playersEngland)">
+<header>
+  <h1 class="head2" style="background-color:green;">Cricket Master</h1>
+</header>
+<nav>
+  <div>
+    <a href="">Instructions</a>
+    <a href="">About</a>
+  </div>    
+</nav>  
+
+<main>
+<h2 class="head2" style="background-color:green;">England vs India</h2>
+<div class="row">
+  <div id="colInputs" class="column" style="background-color:green; color:antiquewhite">
+    <h2 class="head2">Selection</h2>
+    <form id="inputLists"> 
+      <div id="inputBoxes">
+        <datalist id="input1">
+        
+        </datalist>  
+        <input id="select1" list="input1" class="playerInput" ><br>
+        <input id="select2" list="input1" class="playerInput" value ="Buttler"><br>
+        <input id="select3" list="input1" class="playerInput" value="Malan"><br>
+        <input id="select4" list="input1" class="playerInput" value ="Roy"><br>
+        <input id="select5" list="input1" class="playerInput" value="Livingstone"><br>
+        <input id="select6" list="input1" class="playerInput" value ="Moeen"><br>
+        <input id="select7" list="input1" class="playerInput" value="Brook"><br>
+        <input id="select8" list="input1" class="playerInput" value ="Topley"><br>
+        <input id="select9" list="input1" class="playerInput" value ="Jordan"><br>
+        <input id="select10" list="input1" class="playerInput" value="Willey"><br>
+        <input id="select11" list="input1" class="playerInput" value ="Gleeson"><br>
+      </div>
+      <div>
+        <button id="submit" type="button">Submit</button>
+        <button id="reset" onclick="clearInputs(document)">Reset</button>
+      </div>
+    </form>
+  </div>
+  
+  <div id="colEngland" class="column" style="background-color:darkgreen; color:antiquewhite">
+    <h2 class="head2">England</h2>
+    <table id="playerTable1" class="playerTable">
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+      <tr><td></td><td class="runsCell"></td></tr>
+    </table>  
+  </div>
+  <div id="colIndia" class="column" style="background-color:darkgreen; color:antiquewhite">
+    <h2 class="head2">India</h2>
+    <table id="playerTable2" class="playerTable">
+      <tr>
+        <td>Rohit Sharma</td><td class="runsCell">11</td>
+      </tr>
+      <tr>
+        <td>Rishabh Pant</td><td class="runsCell">12</td>
+      </tr>
+      <tr>
+        <td>Virst Kholi</td><td class="runsCell">11</td>
+      </tr>
+      <tr>
+        <td>Suryakumar Yadav</td><td class="runsCell">117</td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+      <tr>
+        <td></td><td class="runsCell"></td>
+      </tr>
+    </table>  
+  </div>
+<! clear columns>
+<p style="clear:both;"></p>
+</div>
+
+</main>
+<footer>
+  <p style="padding:10px">&copy Jezinho</p>
+
+  </footer>
+</body>
+</html>

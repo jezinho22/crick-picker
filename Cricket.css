@@ -1,0 +1,86 @@
+/*palette*/
+.first-color {background: #388e3c;}	
+.second-color {background: #8bc34a;}
+.third-color {background: #dce775;}
+.fourth-color {background: #fff59d;}
+.first-color2 {color: #fcf9f9;}	
+.second-color2 {color: #f1f864;}
+.third-color2 {color: #bceb3c;}
+.fourth-color2 {color: #7cbd1e;}
+
+body{
+    font-family:'Calibri','Gill Sans', 'Gill Sans MT',  'Trebuchet MS', sans-serif;
+    width: 75%;
+    background-color: #fff59d;
+    margin: 0 auto;
+}
+main {
+}
+nav a{
+    margin: 0 auto;
+    padding: 5px 20px;
+    background-color: #388e3c;
+    color:#fff59d;
+    border-radius: 10px;
+    text-decoration: none
+}
+nav a:hover{background-color:darkgreen}
+.column {
+    float: left;
+    width: 25%;
+    margin: 0 2% 0 0 ;
+    border-radius: 8px;
+}
+.head2{
+    border-radius: 8px;
+    padding: 5px 30%;
+    width: 19%;
+    color:#fff59d;
+}
+.colPlayer {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 26px;
+    color:antiquewhite;
+}
+.playerInput{
+    width: 60%;
+    padding: 10px 6px;
+    margin-left: 20px;
+    margin-bottom: 6px;
+    display: inline-block;
+    border: 1px solid green;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: beige;
+    font-size: medium;
+}
+table{
+    width:100%;
+    padding: 0 3%;
+    }
+td {
+    height: 38px; 
+    font-family: Arial, Helvetica, sans-serif;
+    color:antiquewhite;
+}
+.runsCell{
+    text-align:right;
+    width: 10%;
+    }
+/*.playerTable tr:nth-child(even){background-color: #f2f2f2;color:black}*/
+
+button {
+    border-radius: 4px;
+    border: none;
+    color:antiquewhite;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px;
+  }
+#submit {background-color:#f1f864 ; color:#003300 ;margin:20px}
+#submit:hover{background-color:#388e3c;}
+#reset {background-color:midnightblue; margin-left:5px}
+#reset:hover{background-color:#388e3c;}
