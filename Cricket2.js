@@ -84,4 +84,36 @@ function clearInputs(document) {
   document.getElementById("inputLists").reset();
 }
 //set up submit actions
-function getInputValues() {}
+function submitButton(document) {
+  //calls helper functions
+  //pull selection
+  let selectedPlayerList = getInputs(document);
+  //add selection position to database
+  addSelectedPosition(selectedPlayerList);
+  for (i = 0; i < selectedPlayerList.length; i++) {
+    let playerName = selectedPlayerList[i];
+    //set posQ and add to data
+    positionQuotient(playerName);
+  }
+}
+//pull down the selected team from the input boxes
+function getInputs(document) {
+  let inputs = document.getElementsByClassName("playerInput");
+  let selectionList = Object.entries(inputs).map(([key, value]) => value.value);
+  return selectionList;
+}
+// adds selected position to englandVsIndia.englandPlayers object
+function addSelectedPosition(selectionList) {
+  for (i = 0; i < selectionList.length; i++) {
+    let playerName = selectionList[i];
+    englandVsIndia.englandPlayers[playerName].selectedPosition = i + 1;
+  }
+}
+function positionQuotient(playerName) {
+  let difference = Math.abs(
+    englandVsIndia.englandPlayers[playerName].position -
+      englandVsIndia.englandPlayers[playerName].selectedPosition
+  );
+  difference = Math.min(difference, 9); //min ensures range 0 to 9
+  englandVsIndia.englandPlayers[playerName].posQ = 1 - 0.1 * difference; //produce a fraction <1
+}
