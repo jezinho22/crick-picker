@@ -94,6 +94,15 @@ function submitButton(document) {
     let playerName = selectedPlayerList[i];
     //set posQ and add to data
     positionQuotient(playerName);
+
+    englandVsIndia.englandPlayers[playerName].adjustedRuns = adjustRuns(
+      englandVsIndia.englandPlayers[playerName].runs,
+      englandVsIndia.englandPlayers[playerName].posQ
+    );
+    englandVsIndia.englandPlayers[playerName].adjustedWickets = adjustWickets(
+      englandVsIndia.englandPlayers[playerName].wickets,
+      englandVsIndia.englandPlayers[playerName].posQ
+    );
   }
 }
 //pull down the selected team from the input boxes
@@ -117,3 +126,20 @@ function positionQuotient(playerName) {
   difference = Math.min(difference, 9); //min ensures range 0 to 9
   englandVsIndia.englandPlayers[playerName].posQ = 1 - 0.1 * difference; //produce a fraction <1
 }
+function adjustRuns(runs, posQ) {
+  //calculate each player's runs based on closeness to optimum position
+  return Math.round(runs * posQ);
+}
+function adjustWickets(wickets, posQ) {
+  // calculate number of wickets taken by England based on closeness to optimum posiion
+  return Math.round(posQ * wickets);
+}
+// calculate each indian player's runs based on number of wickets taken by England; needs to be done last
+function amendIndianRuns(indianRuns, wickets) {
+  //0.025 means eg 0 wickets gives an extra 25% of runs (9 * 2.5% = 22.5%) to India
+  let factor = 1 + (9 - wickets) * 0.025;
+  return indianRuns * factor;
+}
+// put selected order into second column with adjusted runs
+// colour-code second column cells to show which are in right place
+// adjust india runs and update column 3 cells with runs - in same function or helper function
