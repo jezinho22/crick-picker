@@ -6,9 +6,7 @@
   </head>
 
   <body onload="startUp(document)">
-    <!--onload="playerList.displayColumn(document, document.getElementById('tableTeamIndia'),'firstTeamIndia'),
-  playerList.displayColumn(document, document.getElementById('tableTeamEngland'),'firstTeamEngland'),
-  funcInputLists(document, document.getElementById('inputBoxes'), playerList.playersEngland)"-->
+
     <header>
       <h1 class="head2" style="background-color: green">Cricket Master</h1>
     </header>
@@ -148,6 +146,10 @@
               <td></td>
               <td class="runsCell"></td>
             </tr>
+            <tr>
+              <td>Total</td>
+              <td class="runsCell" id="homeTotal"></td>
+            </tr>
           </table>
         </div>
         <div
@@ -200,9 +202,12 @@
               <td></td>
               <td class="runsCell"></td>
             </tr>
+            <tr>
+              <td>Total</td>
+              <td class="runsCell" id="awayTotal"></td>
+            </tr>
           </table>
         </div>
-        <! clear columns>
         <p style="clear: both"></p>
       </div>
     </main>
