@@ -45,18 +45,16 @@ const englandVsIndia = {
   },
 };
 function startUp(document) {
-  console.log("Working");
-  let players = Object.keys(englandVsIndia.indiaPlayers);
   populateTable(
     document.getElementById("playerTable2").getElementsByTagName("tr"),
-    players,
+    englandVsIndia.indiaPlayers,
     "runs"
   );
   datalistHelper(document, englandVsIndia.englandPlayers);
 }
 //display players and scores to chosen column
 function populateTable(rowList, playerList, runsOrAdjustedRuns) {
-  console.log(playerList);
+  console.log(runsOrAdjustedRuns);
   let cells = [];
   //get keys for object values
   //let players = Object.keys(dataObject);
@@ -67,6 +65,7 @@ function populateTable(rowList, playerList, runsOrAdjustedRuns) {
     cells[1].textContent = dataObject[playerList[i]][runsOrAdjustedRuns];
   }
 }
+function displayResult() {}
 //add England players to input list
 function datalistHelper(page, dataObject) {
   //find where the options need to be added
@@ -146,6 +145,7 @@ function addSelectedPosition(selectionList) {
     englandVsIndia.englandPlayers[playerName].selectedPosition = i + 1;
   }
 }
+// calculates a quotient to adjust runs and wickets
 function positionQuotient(playerName) {
   let difference = Math.abs(
     englandVsIndia.englandPlayers[playerName].position -
