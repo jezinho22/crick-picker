@@ -1,33 +1,130 @@
 const englandVsIndia = {
   englandPlayers: {
-    "Jason Roy": { name: "Jason Roy", runs: 27, wickets: 0, position: 1 },
-    "Jos Buttler": { name: "Jos Buttler", runs: 18, wickets: 0, position: 2 },
-    "Dawid Malan": { name: "Dawid Malan", runs: 77, wickets: 0, position: 3 },
-    "Philip Salt": { name: "Philip Salt", runs: 8, wickets: 0, position: 4 },
+    "Jason Roy": {
+      name: "Jason Roy",
+      runs: 27,
+      wickets: 0,
+      position: 1,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Jos Buttler": {
+      name: "Jos Buttler",
+      runs: 18,
+      wickets: 0,
+      position: 2,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Dawid Malan": {
+      name: "Dawid Malan",
+      runs: 77,
+      wickets: 0,
+      position: 3,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Philip Salt": {
+      name: "Philip Salt",
+      runs: 8,
+      wickets: 0,
+      position: 4,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
     "Liam Livingstone": {
       name: "Liam Livingstone",
       runs: 42,
       wickets: 0,
       position: 5,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
     },
-    "Moeen Ali": { name: "Moeen Ali", runs: 0, wickets: 1, position: 6 },
-    "Harry Brook": { name: "Harry Brook", runs: 19, wickets: 0, position: 7 },
-    "Chris Jordan": { name: "Chris Jordan", runs: 11, wickets: 2, position: 8 },
-    "David Willey": { name: "David Willey", runs: 0, wickets: 2, position: 9 },
-    "Reece Topley": { name: "Reece Topley", runs: 0, wickets: 3, position: 10 },
+    "Moeen Ali": {
+      name: "Moeen Ali",
+      runs: 0,
+      wickets: 1,
+      position: 6,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Harry Brook": {
+      name: "Harry Brook",
+      runs: 19,
+      wickets: 0,
+      position: 7,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Chris Jordan": {
+      name: "Chris Jordan",
+      runs: 11,
+      wickets: 2,
+      position: 8,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "David Willey": {
+      name: "David Willey",
+      runs: 0,
+      wickets: 2,
+      position: 9,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Reece Topley": {
+      name: "Reece Topley",
+      runs: 0,
+      wickets: 3,
+      position: 10,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
     "Richard Gleeson": {
       name: "Richard Gleeson",
       runs: 0,
       wickets: 1,
       position: 11,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
     },
-    "Sam Curran": { name: "Sam Curran", runs: 0, wickets: 0, position: 12 },
-    "Tymal Mills": { name: "Tymal Mills", runs: 0, wickets: 0, position: 13 },
+    "Sam Curran": {
+      name: "Sam Curran",
+      runs: 0,
+      wickets: 0,
+      position: 12,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
+    "Tymal Mills": {
+      name: "Tymal Mills",
+      runs: 0,
+      wickets: 0,
+      position: 13,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
+    },
     "Matt Parkinson": {
       name: "Matt Parkinson",
       runs: 0,
       wickets: 0,
       position: 14,
+      posQ: 0,
+      adjustedRuns: 0,
+      adjustedWickets: 0,
     },
   },
   indiaPlayers: {
@@ -45,6 +142,8 @@ const englandVsIndia = {
   },
 };
 function startUp(document) {
+  console.log("Start up is working");
+  //let players = Object.keys(englandVsIndia.indiaPlayers);
   populateTable(
     document.getElementById("playerTable2").getElementsByTagName("tr"),
     englandVsIndia.indiaPlayers,
@@ -53,16 +152,15 @@ function startUp(document) {
   datalistHelper(document, englandVsIndia.englandPlayers);
 }
 //display players and scores to chosen column
-function populateTable(rowList, playerList, runsOrAdjustedRuns) {
-  console.log(runsOrAdjustedRuns);
+function populateTable(rowList, dataObject, runsOrAdjustedRuns) {
   let cells = [];
   //get keys for object values
-  //let players = Object.keys(dataObject);
+  let players = Object.keys(dataObject);
   //go through rows and find cells, change values
-  for (i = 0; i < rowList.length; i++) {
+  for (i = 0; i < 11; i++) {
     let cells = rowList[i].getElementsByTagName("td");
-    cells[0].textContent = dataObject[playerList[i]].name;
-    cells[1].textContent = dataObject[playerList[i]][runsOrAdjustedRuns];
+    cells[0].textContent = dataObject[players[i]].name;
+    cells[1].textContent = dataObject[players[i]][runsOrAdjustedRuns];
   }
 }
 function displayResult() {}
@@ -86,97 +184,122 @@ function datalistHelper(page, dataObject) {
 function clearInputs(document) {
   document.getElementById("inputLists").reset();
 }
-//set up submit actions
+
+//get submit actions
 function submitButton(document) {
-  //calls helper functions
+  console.log("Submit button is working");
   //get user selection
   let selectedPlayerList = getInputs(document);
+
   //add selection position to database
   addSelectedPosition(selectedPlayerList);
+
+  // loop through all players in selection list
   for (i = 0; i < selectedPlayerList.length; i++) {
     let playerName = selectedPlayerList[i];
-    //set posQ and add to data
+    console.log("i = " + i);
+    //set posQ and add to database
     positionQuotient(playerName);
-    // adjust england runs
+
+    // adjust england runs in database
     englandVsIndia.englandPlayers[playerName].adjustedRuns = adjustRuns(
       englandVsIndia.englandPlayers[playerName].runs,
       englandVsIndia.englandPlayers[playerName].posQ
     );
-    // adjust england wickets
+
+    // adjust england wickets in database
     englandVsIndia.englandPlayers[playerName].adjustedWickets = adjustWickets(
       englandVsIndia.englandPlayers[playerName].wickets,
       englandVsIndia.englandPlayers[playerName].posQ
     );
-    // display selection and runs
-    populateTable(
-      document.getElementById("playerTable1").getElementsByTagName("tr"),
-      englandVsIndia.englandPlayers,
-      "adjustedRuns"
-    );
   }
+
+  // display selection and runs from database
+  populateTable(
+    document.getElementById("playerTable1").getElementsByTagName("tr"),
+    englandVsIndia.englandPlayers,
+    "adjustedRuns"
+  );
+
+  // get total runs, add to display
   const englandTotalRuns = totalRuns("englandPlayers", "adjustedRuns");
-  // adjust india's runs for each player and display instead of original runs
+  document.getElementById("homeTotal").textContent = englandTotalRuns;
+
   const englandTotalWickets = totalRuns("englandPlayers", "adjustedWickets");
-  console.log(englandTotalWickets);
+  console.log("Total Eng wickets :" + englandTotalWickets);
+  console.log("Total Eng runs :" + englandTotalRuns);
+
+  // adjust india's runs for each player
   for (player in englandVsIndia.indiaPlayers) {
     englandVsIndia.indiaPlayers[player].adjustedRuns = amendIndianRuns(
       englandVsIndia.indiaPlayers[player].runs,
       englandTotalWickets
     );
   }
+
+  // and display instead of original runs
   populateTable(
     document.getElementById("playerTable2").getElementsByTagName("tr"),
     englandVsIndia.indiaPlayers,
     "adjustedRuns"
   );
-  console.log(englandVsIndia.indiaPlayers["Suryakumar Yadav"].adjustedRuns);
+  const indiaTotalRuns = totalRuns("indiaPlayers", "adjustedRuns");
+  document.getElementById("awayTotal").textContent = indiaTotalRuns;
 }
 
-//pull down the selected team from the input boxes
+//get the selected team from the input boxes
 function getInputs(document) {
   let inputs = document.getElementsByClassName("playerInput");
   let selectionList = Object.entries(inputs).map(([key, value]) => value.value);
   return selectionList;
 }
-// adds selected position to englandVsIndia.englandPlayers object
+
+// add selected position to englandVsIndia.englandPlayers object
 function addSelectedPosition(selectionList) {
   for (i = 0; i < selectionList.length; i++) {
     let playerName = selectionList[i];
     englandVsIndia.englandPlayers[playerName].selectedPosition = i + 1;
   }
 }
-// calculates a quotient to adjust runs and wickets
+
+// calculate difference between selected and actual position
 function positionQuotient(playerName) {
-  let difference = Math.abs(
-    englandVsIndia.englandPlayers[playerName].position -
-      englandVsIndia.englandPlayers[playerName].selectedPosition
-  );
-  difference = Math.min(difference, 9); //min ensures range 0 to 9
+  console.log("positionQuotient working" + playerName);
+  let position = englandVsIndia.englandPlayers[playerName].position;
+  let selectedPosition =
+    englandVsIndia.englandPlayers[playerName].selectedPosition;
+  // min ensures range 0 to 9, abs ensures positive int
+  let difference = Math.min(Math.abs(position - selectedPosition), 9);
   englandVsIndia.englandPlayers[playerName].posQ = 1 - 0.1 * difference; //produce a fraction <1
+  return 1 - 0.1 * Math.min(difference, 9);
 }
+
+// calculate adjusted runs
 function adjustRuns(runs, posQ) {
-  //calculate each player's runs based on closeness to optimum position
   return Math.round(runs * posQ);
 }
+// calculate adjusted wickets
 function adjustWickets(wickets, posQ) {
-  // calculate number of wickets taken by England based on closeness to optimum posiion
   return Math.round(posQ * wickets);
 }
-// calculate each indian player's runs based on number of wickets taken by England; needs to be done last
-function amendIndianRuns(indiaRuns, englandWickets) {
+
+// calculate indian runs, based on adjusted england wickets
+function amendIndianRuns(indianRuns, englandTotalWickets) {
   //0.025 means eg 0 wickets gives an extra 25% of runs (9 * 2.5% = 22.5%) to India
-  let factor = 1 + (9 - wickets) * 0.025;
-  return indianRuns * factor;
+  let factor = 1 + (9 - englandTotalWickets) * 0.025;
+  return Math.round(indianRuns * factor);
 }
 // totals runs or wickets from the data object
 function totalRuns(whichPlayers, runsOrWickets) {
-  console.log(runsOrWickets);
+  console.log("called totalRuns :" + whichPlayers + runsOrWickets);
   let f = 0;
   for (player in englandVsIndia[whichPlayers]) {
     let g = englandVsIndia[whichPlayers][player][runsOrWickets];
     f = f + g;
   }
+  return f;
 }
-// put selected order into second column with adjusted runs
+// put selected order into second column with adjusted runs - not yet n selected order
 // colour-code second column cells to show which are in right place
-// adjust india runs and update column 3 cells with runs - in same function or helper function
+
+// colour code totals for how close they are to best possible
