@@ -1,0 +1,217 @@
+<html>
+  <head>
+    <title>Cricket Master</title>
+    <script language="JavaScript" src="Cricket2.js"></script>
+    <link rel="stylesheet" href="Cricket.css" />
+  </head>
+
+  <body onload="startUp(document)">
+    <header>
+      <h1 class="head2" style="background-color: green">Cricket Master</h1>
+    </header>
+    <nav>
+      <div>
+        <a href="">Instructions</a>
+        <a href="">About</a>
+      </div>
+    </nav>
+
+    <main>
+      <h2 class="head2" style="background-color: green">England vs India</h2>
+      <div class="row">
+        <div
+          id="colInputs"
+          class="column"
+          style="background-color: green; color: antiquewhite">
+          <h2 class="head2">Selection</h2>
+          <form id="inputLists">
+            <div id="inputBoxes">
+              <datalist id="input1"> </datalist>
+              <input
+                id="select1"
+                list="input1"
+                class="playerInput"
+                value="Sam Curran" /><br />
+              <input
+                id="select2"
+                list="input1"
+                class="playerInput"
+                value="Jos Buttler" /><br />
+              <input
+                id="select3"
+                list="input1"
+                class="playerInput"
+                value="Dawid Malan" /><br />
+              <input
+                id="select4"
+                list="input1"
+                class="playerInput"
+                value="Jason Roy" /><br />
+              <input
+                id="select5"
+                list="input1"
+                class="playerInput"
+                value="Liam Livingstone" /><br />
+              <input
+                id="select6"
+                list="input1"
+                class="playerInput"
+                value="Moeen Ali" /><br />
+              <input
+                id="select7"
+                list="input1"
+                class="playerInput"
+                value="Harry Brook" /><br />
+              <input
+                id="select8"
+                list="input1"
+                class="playerInput"
+                value="Reece Topley" /><br />
+              <input
+                id="select9"
+                list="input1"
+                class="playerInput"
+                value="Chris Jordan" /><br />
+              <input
+                id="select10"
+                list="input1"
+                class="playerInput"
+                value="David Willey" /><br />
+              <input
+                id="select11"
+                list="input1"
+                class="playerInput"
+                value="Richard Gleeson" /><br />
+            </div>
+            <div>
+              <button
+                id="submit"
+                type="button"
+                onclick="submitButton(document)">
+                Submit
+              </button>
+              <button id="reset" onclick="clearInputs(document)">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <div
+          id="colEngland"
+          class="column"
+          style="background-color: darkgreen; color: antiquewhite">
+          <h2 class="head2">England</h2>
+          <table id="playerTable1" class="playerTable">
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td class="runsCell" id="homeTotal"></td>
+            </tr>
+          </table>
+        </div>
+        <div
+          id="colIndia"
+          class="column"
+          style="background-color: darkgreen; color: antiquewhite">
+          <h2 class="head2">India</h2>
+          <table id="playerTable2" class="playerTable">
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="runsCell"></td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td class="runsCell" id="awayTotal"></td>
+            </tr>
+          </table>
+        </div>
+        <p style="clear: both"></p>
+      </div>
+    </main>
+    <footer>
+      <p style="padding: 10px">&copy Jezinho</p>
+    </footer>
+  </body>
+</html>
