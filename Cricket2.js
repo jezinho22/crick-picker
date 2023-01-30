@@ -45,22 +45,26 @@ const englandVsIndia = {
   },
 };
 function startUp(document) {
+  console.log("Working");
+  let players = Object.keys(englandVsIndia.indiaPlayers);
   populateTable(
     document.getElementById("playerTable2").getElementsByTagName("tr"),
-    englandVsIndia.indiaPlayers
+    players,
+    "runs"
   );
   datalistHelper(document, englandVsIndia.englandPlayers);
 }
-//add Indian players to column 3
-function populateTable(rowList, dataObject) {
+//display players and scores to chosen column
+function populateTable(rowList, playerList, runsOrAdjustedRuns) {
+  console.log(playerList);
   let cells = [];
   //get keys for object values
-  let players = Object.keys(dataObject);
+  //let players = Object.keys(dataObject);
   //go through rows and find cells, change values
-  for (rowIndex = 0; rowIndex < rowList.length; rowIndex++) {
-    let cells = rowList[rowIndex].getElementsByTagName("td");
-    cells[0].textContent = dataObject[players[rowIndex]].name;
-    cells[1].textContent = dataObject[players[rowIndex]].runs;
+  for (i = 0; i < rowList.length; i++) {
+    let cells = rowList[i].getElementsByTagName("td");
+    cells[0].textContent = dataObject[playerList[i]].name;
+    cells[1].textContent = dataObject[playerList[i]][runsOrAdjustedRuns];
   }
 }
 //add England players to input list
@@ -86,7 +90,7 @@ function clearInputs(document) {
 //set up submit actions
 function submitButton(document) {
   //calls helper functions
-  //pull selection
+  //get user selection
   let selectedPlayerList = getInputs(document);
   //add selection position to database
   addSelectedPosition(selectedPlayerList);
@@ -94,17 +98,41 @@ function submitButton(document) {
     let playerName = selectedPlayerList[i];
     //set posQ and add to data
     positionQuotient(playerName);
-
+    // adjust england runs
     englandVsIndia.englandPlayers[playerName].adjustedRuns = adjustRuns(
       englandVsIndia.englandPlayers[playerName].runs,
       englandVsIndia.englandPlayers[playerName].posQ
     );
+    // adjust england wickets
     englandVsIndia.englandPlayers[playerName].adjustedWickets = adjustWickets(
       englandVsIndia.englandPlayers[playerName].wickets,
       englandVsIndia.englandPlayers[playerName].posQ
     );
+    // display selection and runs
+    populateTable(
+      document.getElementById("playerTable1").getElementsByTagName("tr"),
+      englandVsIndia.englandPlayers,
+      "adjustedRuns"
+    );
   }
+  const englandTotalRuns = totalRuns("englandPlayers", "adjustedRuns");
+  // adjust india's runs for each player and display instead of original runs
+  const englandTotalWickets = totalRuns("englandPlayers", "adjustedWickets");
+  console.log(englandTotalWickets);
+  for (player in englandVsIndia.indiaPlayers) {
+    englandVsIndia.indiaPlayers[player].adjustedRuns = amendIndianRuns(
+      englandVsIndia.indiaPlayers[player].runs,
+      englandTotalWickets
+    );
+  }
+  populateTable(
+    document.getElementById("playerTable2").getElementsByTagName("tr"),
+    englandVsIndia.indiaPlayers,
+    "adjustedRuns"
+  );
+  console.log(englandVsIndia.indiaPlayers["Suryakumar Yadav"].adjustedRuns);
 }
+
 //pull down the selected team from the input boxes
 function getInputs(document) {
   let inputs = document.getElementsByClassName("playerInput");
@@ -135,10 +163,19 @@ function adjustWickets(wickets, posQ) {
   return Math.round(posQ * wickets);
 }
 // calculate each indian player's runs based on number of wickets taken by England; needs to be done last
-function amendIndianRuns(indianRuns, wickets) {
+function amendIndianRuns(indiaRuns, englandWickets) {
   //0.025 means eg 0 wickets gives an extra 25% of runs (9 * 2.5% = 22.5%) to India
   let factor = 1 + (9 - wickets) * 0.025;
   return indianRuns * factor;
+}
+// totals runs or wickets from the data object
+function totalRuns(whichPlayers, runsOrWickets) {
+  console.log(runsOrWickets);
+  let f = 0;
+  for (player in englandVsIndia[whichPlayers]) {
+    let g = englandVsIndia[whichPlayers][player][runsOrWickets];
+    f = f + g;
+  }
 }
 // put selected order into second column with adjusted runs
 // colour-code second column cells to show which are in right place

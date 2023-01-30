@@ -1,29 +1,47 @@
-const india = [
-  { name: "Rohit Sharma", score: 11 },
-  { name: "Rishabh Pant ", score: 12 },
-  { name: "Virat Kohli", score: 11 },
-  { name: "Suryakumar Yadav", score: 117 },
-  { name: "Shreyas Iyer", score: 28 },
-  { name: "Dinesh Karthik", score: 6 },
-  { name: "Ravindra Jadeja", score: 7 },
-  { name: "Harshal Patel", score: 5 },
-  { name: "Avesh Khan", score: 1 },
-  { name: "Ravi Bishnoi", score: 2 },
-  { name: "Umran Malik", score: 0 },
-];
-const England = {
-  players: {
-    "Jason Roy": { runs: 27, wickets: 0, position: 1 },
-    "Jos Buttler": { runs: 18, wickets: 0, position: 2 },
-    "Dawid Malan": { runs: 77, wickets: 0, position: 3 },
-    "Philip Salt": { runs: 8, wickets: 0, position: 4 },
-    "Liam Livingstone": { runs: 42, wickets: 0, position: 5 },
-    "Moeen Ali": { runs: 0, wickets: 1, position: 6 },
-    "Harry Brook": { runs: 19, wickets: 0, position: 7 },
-    "Chris Jordan": { runs: 11, wickets: 2, position: 8 },
-    "David Willey": { runs: 0, wickets: 2, position: 9 },
-    "Reece Topley": { runs: 0, wickets: 3, position: 10 },
-    "Richard Gleeson": { runs: 0, wickets: 1, position: 11 },
+const englandVsIndia = {
+  englandPlayers: {
+    "Jason Roy": { name: "Jason Roy", runs: 27, wickets: 0, position: 1 },
+    "Jos Buttler": { name: "Jos Buttler", runs: 18, wickets: 0, position: 2 },
+    "Dawid Malan": { name: "Dawid Malan", runs: 77, wickets: 0, position: 3 },
+    "Philip Salt": { name: "Philip Salt", runs: 8, wickets: 0, position: 4 },
+    "Liam Livingstone": {
+      name: "Liam Livingstone",
+      runs: 42,
+      wickets: 0,
+      position: 5,
+    },
+    "Moeen Ali": { name: "Moeen Ali", runs: 0, wickets: 1, position: 6 },
+    "Harry Brook": { name: "Harry Brook", runs: 19, wickets: 0, position: 7 },
+    "Chris Jordan": { name: "Chris Jordan", runs: 11, wickets: 2, position: 8 },
+    "David Willey": { name: "David Willey", runs: 0, wickets: 2, position: 9 },
+    "Reece Topley": { name: "Reece Topley", runs: 0, wickets: 3, position: 10 },
+    "Richard Gleeson": {
+      name: "Richard Gleeson",
+      runs: 0,
+      wickets: 1,
+      position: 11,
+    },
+    "Sam Curran": { name: "Sam Curran", runs: 0, wickets: 0, position: 12 },
+    "Tymal Mills": { name: "Tymal Mills", runs: 0, wickets: 0, position: 13 },
+    "Matt Parkinson": {
+      name: "Matt Parkinson",
+      runs: 0,
+      wickets: 0,
+      position: 14,
+    },
+  },
+  indiaPlayers: {
+    "Rohit Sharma": { name: "Rohit Sharma", runs: 11 },
+    "Rishabh Pant": { name: "Rishabh Pant", runs: 12 },
+    "Virat Kohli": { name: "Virat Kohli", runs: 11 },
+    "Suryakumar Yadav": { name: "Suryakumar Yadav", runs: 117 },
+    "Shreyas Iyer": { name: "Shreyas Iyer", runs: 28 },
+    "Dinesh Karthik": { name: "Dinesh Karthik", runs: 6 },
+    "Ravindra Jadeja": { name: "Ravindra Jadeja", runs: 7 },
+    "Harshal Patel": { name: "Harshal Patel", runs: 5 },
+    "Avesh Khan": { name: "Avesh Khan", runs: 1 },
+    "Ravi Bishnoi": { name: "Ravi Bishnoi", runs: 2 },
+    "Umran Malik": { name: "Umran Malik", runs: 0 },
   },
 };
 
@@ -110,12 +128,8 @@ function inputText(page) {
   let inputs = page.getElementsByClassName("playerInput");
   let list = Object.keys(England.players);
   list.sort();
-  for (let listIndex = 0; listIndex < list.length; listIndex++) {
-    let listItem = list[listIndex];
-    inputs[listIndex].value = listItem;
+  for (let i = 0; i < list.length; i++) {
+    let listItem = list[i];
+    inputs[i].value = listItem;
   }
 }
-const obj = { player: { name: "Jeff", age: 12 } };
-console.log(obj.player.name);
-obj.player.position = 22;
-console.log(obj.player);
