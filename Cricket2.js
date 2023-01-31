@@ -163,7 +163,22 @@ function populateTable(rowList, dataObject, runsOrAdjustedRuns) {
     cells[1].textContent = dataObject[players[i]][runsOrAdjustedRuns];
   }
 }
-function displayResult() {}
+function displayResult(selectedPlayerList, object) {
+  let tableRows = document
+    .getElementById("playerTable1")
+    .getElementsByTagName("tr");
+  for (i = 0; i < selectedPlayerList.length; i++) {
+    let item = selectedPlayerList[i];
+    // or use the selectedPosition instead of i but do you really need to?
+    let cells = tableRows[i].getElementsByTagName("td");
+    console.log(cells);
+    if (object[item].position === object[item].selectedPosition) {
+      cells[0].style.backgroundColor = "green";
+    }
+    cells[0].textContent = object[item].name;
+    cells[1].textContent = object[item].adjustedRuns;
+  }
+}
 //add England players to input list
 function datalistHelper(page, dataObject) {
   //find where the options need to be added
@@ -215,11 +230,7 @@ function submitButton(document) {
   }
 
   // display selection and runs from database
-  populateTable(
-    document.getElementById("playerTable1").getElementsByTagName("tr"),
-    englandVsIndia.englandPlayers,
-    "adjustedRuns"
-  );
+  displayResult(selectedPlayerList, englandVsIndia.englandPlayers);
 
   // get total runs, add to display
   const englandTotalRuns = totalRuns("englandPlayers", "adjustedRuns");
