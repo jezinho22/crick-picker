@@ -141,6 +141,20 @@ const englandVsIndia = {
     "Umran Malik": { name: "Umran Malik", runs: 0 },
   },
 };
+
+function instructions() {
+  alert(
+    "This is based on a match played in 2022.\
+  \nPick an England team to beat India's score. Click Submit.\nBatters in the right places will score more. \
+  Bowlers in the right places will keep India's score down. Players in the right places will be highlighted in green. \
+  \nYour attempt will stay after you click the reset button, so you can improve your guesses."
+  );
+}
+function about() {
+  alert(
+    "Use your knowledge of cricket players and batting orders, and maybe your memory of the match, to pick the winning team. \nA 2023 jezinho game"
+  );
+}
 function startUp(document) {
   console.log("Start up is working");
   //let players = Object.keys(englandVsIndia.indiaPlayers);
@@ -164,9 +178,7 @@ function populateTable(rowList, dataObject, runsOrAdjustedRuns) {
   }
 }
 function displayResult(selectedPlayerList, object) {
-  let tableRows = document
-    .getElementById("playerTable1")
-    .getElementsByTagName("tr");
+  let tableRows = document.getElementById("playerTable1").getElementsByTagName("tr");
   for (i = 0; i < selectedPlayerList.length; i++) {
     let item = selectedPlayerList[i];
     // or use the selectedPosition instead of i but do you really need to?
@@ -184,7 +196,7 @@ function datalistHelper(page, dataObject) {
   //find where the options need to be added
   let datalist = page.getElementById("input1");
   //get keys for required values
-  let keys = Object.keys(dataObject);
+  let keys = Object.keys(dataObject).sort();
   //make options and add values
   for (let keysIndex = 0; keysIndex < keys.length; keysIndex++) {
     let listItem = dataObject[keys[keysIndex]].name;
@@ -197,7 +209,8 @@ function datalistHelper(page, dataObject) {
 }
 //set up reset button to reset whole form
 function clearInputs(document) {
-  document.getElementById("inputLists").reset();
+  let x = document.getElementById("inputLists");
+  x.reset();
 }
 
 //get submit actions
@@ -277,8 +290,7 @@ function addSelectedPosition(selectionList) {
 function positionQuotient(playerName) {
   console.log("positionQuotient working" + playerName);
   let position = englandVsIndia.englandPlayers[playerName].position;
-  let selectedPosition =
-    englandVsIndia.englandPlayers[playerName].selectedPosition;
+  let selectedPosition = englandVsIndia.englandPlayers[playerName].selectedPosition;
   // min ensures range 0 to 9, abs ensures positive int
   let difference = Math.min(Math.abs(position - selectedPosition), 9);
   englandVsIndia.englandPlayers[playerName].posQ = 1 - 0.1 * difference; //produce a fraction <1
@@ -310,7 +322,11 @@ function totalRuns(whichPlayers, runsOrWickets) {
   }
   return f;
 }
-// put selected order into second column with adjusted runs - not yet n selected order
-// colour-code second column cells to show which are in right place
+// put selected order into second column with adjusted runs - not yet n selected order - done
+// colour-code second column cells to show which are in right place - done
 
 // colour code totals for how close they are to best possible
+// randomise the order that players appear in the selction dropdown
+// allow selections to be changed before submitting
+// retain the previous selection as reference - maybe "fix" clrrect players?
+// add india total on load

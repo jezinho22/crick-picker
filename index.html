@@ -7,19 +7,19 @@
 
   <body onload="startUp(document)">
     <header>
-      <h1 class="head2" style="background-color: green">Cricket Master</h1>
+      <h1 class="head2" style="background-color: darkgreen">Cricket Master</h1>
     </header>
     <nav>
       <div>
-        <a href="">Instructions</a>
-        <a href="">About</a>
+        <a onclick="instructions()">Instructions</a>
+        <a onclick="about()">About</a>
       </div>
     </nav>
 
     <main>
-      <h2 class="head2" style="background-color: green">England vs India</h2>
+      <h2 class="head2" style="background-color: darkgreen">England vs India</h2>
       <div class="row">
-        <div id="colInputs" class="column" style="background-color: green; color: antiquewhite">
+        <div id="colInputs" class="column" style="background-color: black; color: antiquewhite">
           <h2 class="head2">Selection</h2>
           <form id="inputLists">
             <div id="inputBoxes">
@@ -37,13 +37,13 @@
               <input id="select11" list="input1" class="playerInput" placeholder="Select player" /><br />
             </div>
             <div>
-              <button id="submit" type="button" onclick="submitButton(document)">Submit</button>
-              <button id="reset" onclick="clearInputs(document)">Reset</button>
+              <input id="submit" type="button" class="buttons" onclick="submitButton(document)" value="Submit" />
+              <input id="reset" type="reset" class="buttons" value="Reset" />
             </div>
           </form>
         </div>
 
-        <div id="colEngland" class="column" style="background-color: darkgreen; color: antiquewhite">
+        <div id="colEngland" class="column" style="background-color: black; color: antiquewhite">
           <h2 class="head2">England</h2>
           <table id="playerTable1" class="playerTable">
             <tr>
@@ -96,7 +96,7 @@
             </tr>
           </table>
         </div>
-        <div id="colIndia" class="column" style="background-color: darkgreen; color: antiquewhite">
+        <div id="colIndia" class="column" style="background-color: black; color: antiquewhite">
           <h2 class="head2">India</h2>
           <table id="playerTable2" class="playerTable">
             <tr>
@@ -153,7 +153,7 @@
       </div>
     </main>
     <footer>
-      <p style="padding: 10px">&copy Jezinho</p>
+      <p style="padding: 10px; color: bisque">&copy Jezinho</p>
     </footer>
   </body>
 </html>
