@@ -31,11 +31,13 @@ body {
   margin: 0 auto;
 }
 
-nav a {
+nav ul li {
   margin: 0 auto;
   padding: 5px 20px;
+  display: inline-block;
   background-color: #388e3c;
   color: #fff59d;
+  text-decoration: none;
   border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
